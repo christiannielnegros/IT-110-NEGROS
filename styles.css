@@ -1,0 +1,211 @@
+/* SECTION 1: RESET AND GLOBAL STYLES */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f4fa;
+  color: #253858;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+h1, h2 {
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+/* SECTION 2: HEADER AND NAVIGATION */
+
+header {
+  background-color: #102a43;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+nav a {
+  display: inline-block;
+  padding: 10px 18px;
+  margin: 5px;
+  background-color: #2364aa;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  background-color: #f4b942;
+  color: #102a43;
+}
+
+/* SECTION 3: PROFILE CARD LAYOUT */
+
+.card {
+  width: 500px;
+  max-width: 90%;
+  padding: 20px;
+  border: 2px solid #d4dce8;
+  border-radius: 12px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/*
+BOX MODEL COMPUTATION:
+The card width is 500px.
+With border-box, padding and borders are
+included inside the declared width.
+Total rendered width = 500px.
+*/
+
+.card h2 {
+  color: #174a7e;
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+
+.card h2::before {
+  content: "★ ";
+  color: #f4b942;
+}
+
+.card p {
+  font-size: 1rem;
+  margin-bottom: 12px;
+  line-height: 1.7;
+}
+
+/* SECTION 4: CASCADE AND SPECIFICITY */
+
+.intro {
+  color: blue;
+}
+
+/*
+Both rules target the same .intro element.
+The second rule wins because it has the
+same specificity and appears later.
+*/
+
+.intro {
+  color: #2364aa;
+  font-weight: bold;
+}
+
+/* SECTION 5: ABOUT CARD AND BADGE */
+
+#about {
+  position: relative;
+  border: 2px solid #f4b942;
+  background-color: #fffdf5;
+}
+
+#about::after {
+  content: "PROFILE";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #f4b942;
+  color: #102a43;
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+/* SECTION 6: SKILLS AND FLEXBOX */
+
+.skills-list {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.skills-list > li {
+  background-color: rgb(35, 100, 170);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+/* SECTION 7: DISPLAY AND VISIBILITY */
+
+.hide-none {
+  display: none;
+}
+
+.hide-visibility {
+  visibility: hidden;
+}
+
+/*
+display: none removes the paragraph
+completely without leaving a gap.
+
+visibility: hidden makes the paragraph
+invisible but keeps its original space.
+*/
+
+/* SECTION 8: SCROLLABLE HOBBIES CARD */
+
+.scroll-box {
+  height: 120px;
+  overflow: auto;
+}
+
+/* SECTION 9: FOOTER */
+
+footer {
+  background-color: #102a43;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+  font-size: 0.9rem;
+}
+
+/* SECTION 10: REFLECTION QUESTIONS */
+
+/*
+1. Why did one conflicting rule win?
+
+The second .intro rule won because both
+rules have the same specificity, but the
+second rule appears later in the CSS file.
+When specificity is equal, the browser
+follows the last declared rule.
+
+2. What if box-sizing were content-box?
+
+With content-box, the declared width
+covers only the content area. The total
+rendered width would be:
+500px + 20px + 20px + 2px + 2px
+= 544px.
+
+3. When should visibility: hidden be used?
+
+I would use visibility: hidden when I
+want an element to become invisible
+without changing the page layout.
+Unlike display: none, it preserves
+the space occupied by the element.
+*/
